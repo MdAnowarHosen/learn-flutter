@@ -29,9 +29,21 @@ class HomeActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My App'),
+        title: const Text('Barta'),
         backgroundColor: Colors.amber,
         actions: [
+          IconButton(
+            onPressed: () {
+              MySnackBar('I am message', context);
+            },
+            icon: Icon(Icons.message),
+          ),
+          IconButton(
+            onPressed: () {
+              MySnackBar('I am notifications', context);
+            },
+            icon: Icon(Icons.notifications),
+          ),
           IconButton(
             onPressed: () {
               MySnackBar('I am search', context);
