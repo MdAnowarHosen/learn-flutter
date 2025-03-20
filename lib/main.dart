@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeActivity(), theme: ThemeData(primarySwatch: Colors.green) );
+    return MaterialApp(home: HomeActivity());
   }
 
 }
@@ -20,8 +20,9 @@ class HomeActivity extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('My App')),
+      appBar: AppBar(title: const Text('My App'), backgroundColor: Colors.green,),
       body: Text('Bismillah'),
+
     );
   }
 
