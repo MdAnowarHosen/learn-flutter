@@ -9,20 +9,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeActivity(),
-        debugShowCheckedModeBanner:false,
-    // theme: ThemeData(primarySwatch: Colors.green) ,
+    return MaterialApp(
+      home: HomeActivity(),
+      debugShowCheckedModeBanner: false,
+      // theme: ThemeData(primarySwatch: Colors.green) ,
       // color: Colors.green,
     );
   }
 }
 
 void MySnackBar(String message, BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text(message)),
-  );
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
 }
-
 
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
@@ -34,11 +32,29 @@ class HomeActivity extends StatelessWidget {
         title: const Text('My App'),
         backgroundColor: Colors.amber,
         actions: [
-          IconButton(onPressed: (){MySnackBar('I am search', context);}, icon: Icon(Icons.search)),
-          IconButton(onPressed: (){MySnackBar('I am user', context);}, icon: Icon(Icons.person)),
+          IconButton(
+            onPressed: () {
+              MySnackBar('I am search', context);
+            },
+            icon: Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () {
+              MySnackBar('I am user', context);
+            },
+            icon: Icon(Icons.person),
+          ),
         ],
       ),
-      body: Center(child: Text('Bismillah'),),
+      body: Center(child: Text('Bismillah')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          MySnackBar('I am  Floating action button', context);
+        },
+        elevation: 10,
+        child: Icon(Icons.add),
+        backgroundColor: Colors.amber ,
+      ),
     );
   }
 }
