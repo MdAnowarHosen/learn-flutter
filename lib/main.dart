@@ -72,6 +72,7 @@ class HomeActivity extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
+      drawer: Drawer(),
     );
   }
 }
