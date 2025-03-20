@@ -84,7 +84,18 @@ class HomeActivity extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(child: Text('Barta')),
+            ListTile( leading: Icon(Icons.home), title: Text('Home'),),
+            ListTile(leading: Icon(Icons.post_add), title: Text('Blog'),),
+            ListTile(leading: Icon(Icons.contact_emergency), title: Text('Contact'),),
+            ListTile(leading: Icon(Icons.settings), title: Text('Settings'),),
+            ListTile(leading: Icon(Icons.info), title: Text('About'),),
+          ],
+        ),
+      ),
     );
   }
 }
