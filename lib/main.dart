@@ -32,13 +32,13 @@ class HomeActivity extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My App'),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.amber,
         actions: [
           IconButton(onPressed: (){MySnackBar('I am search', context);}, icon: Icon(Icons.search)),
           IconButton(onPressed: (){MySnackBar('I am user', context);}, icon: Icon(Icons.person)),
         ],
       ),
-      body: Text('Bismillah, starting by the name of Allah'),
+      body: Center(child: Text('Bismillah'),),
     );
   }
 }
