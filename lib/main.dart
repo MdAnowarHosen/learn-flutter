@@ -35,7 +35,7 @@ class HomeActivity extends StatelessWidget {
         backgroundColor: Colors.green,
         actions: [
           IconButton(onPressed: (){MySnackBar('I am search', context);}, icon: Icon(Icons.search)),
-          IconButton(onPressed: (){}, icon: Icon(Icons.person)),
+          IconButton(onPressed: (){MySnackBar('I am user', context);}, icon: Icon(Icons.person)),
         ],
       ),
       body: Text('Bismillah, starting by the name of Allah'),
