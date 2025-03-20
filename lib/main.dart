@@ -53,7 +53,24 @@ class HomeActivity extends StatelessWidget {
         },
         elevation: 10,
         child: Icon(Icons.add),
-        backgroundColor: Colors.amber ,
+        backgroundColor: Colors.amber,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1,
+        onTap: (int index) {
+          if (index == 0) {
+            MySnackBar('I am search bottom menu', context);
+          } else if (index == 1) {
+            MySnackBar('I am home bottom menu', context);
+          } else if (index == 2) {
+            MySnackBar('I am profile bottom menu', context);
+          }
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        ],
       ),
     );
   }
