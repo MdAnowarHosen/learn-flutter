@@ -38,66 +38,68 @@ class HomeActivity extends StatelessWidget {
         surfaceTintColor: Colors.green[900],
         actions: [
           IconButton(
-              onPressed: () {
-                MySnackBar("Search", context);
-              },
-              icon: Icon(Icons.search),
-              tooltip: 'Search',
-        ),
-          IconButton(
-              onPressed: () {
-                MySnackBar("Settings", context);
-              },
-              icon: Icon(Icons.settings),
-              tooltip: 'Settings',
+            onPressed: () {
+              MySnackBar("Search", context);
+            },
+            icon: Icon(Icons.search),
+            tooltip: 'Search',
           ),
           IconButton(
-              onPressed: () {
-                MySnackBar("Profile", context);
-              },
-              icon: Icon(Icons.person),
-              tooltip: 'Profile',
-          )
-          ],
-
+            onPressed: () {
+              MySnackBar("Settings", context);
+            },
+            icon: Icon(Icons.settings),
+            tooltip: 'Settings',
+          ),
+          IconButton(
+            onPressed: () {
+              MySnackBar("Profile", context);
+            },
+            icon: Icon(Icons.person),
+            tooltip: 'Profile',
+          ),
+        ],
       ),
-      bottomNavigationBar:BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.green,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings",
+          ),
         ],
-        
+
         currentIndex: 0,
-        onTap: (int index){
-          if(index == 0){
+        onTap: (int index) {
+          if (index == 0) {
             MySnackBar("Home", context);
-          }
-          else if(index == 1){
+          } else if (index == 1) {
             MySnackBar("Search", context);
-          }
-          else if(index == 2){
+          } else if (index == 2) {
             MySnackBar("Settings", context);
           }
         },
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
-        ),
+      ),
       drawer: Drawer(
         backgroundColor: Colors.green[400],
         surfaceTintColor: Colors.green[900],
         child: ListView(
           children: [
             DrawerHeader(
-              child: Text("Flutter App"),
-              decoration: BoxDecoration(
-                color: Colors.green,
+              child: Image.network(
+                'https://cdn.pixabay.com/photo/2014/04/03/10/44/avatar-311292_1280.png',
               ),
+              decoration: BoxDecoration(color: Colors.green),
             ),
             ListTile(
               title: Text("Home"),
               leading: Icon(Icons.home),
+              iconColor: Colors.white,
+              textColor: Colors.white,
               onTap: () {
                 MySnackBar("Home", context);
               },
@@ -105,6 +107,8 @@ class HomeActivity extends StatelessWidget {
             ListTile(
               title: Text("Search"),
               leading: Icon(Icons.search),
+              iconColor: Colors.white,
+              textColor: Colors.white,
               onTap: () {
                 MySnackBar("Search", context);
               },
@@ -112,16 +116,25 @@ class HomeActivity extends StatelessWidget {
             ListTile(
               title: Text("Settings"),
               leading: Icon(Icons.settings),
+              iconColor: Colors.white,
+              textColor: Colors.white,
               onTap: () {
                 MySnackBar("Settings", context);
               },
             ),
+              ListTile(
+              title: Text("About"),
+              leading: Icon(Icons.info),
+              iconColor: Colors.white,
+              textColor: Colors.white,
+              onTap: () {
+                MySnackBar("About", context);
+              },
+            ),
           ],
-            )
+        ),
       ),
-      body: Center(
-        child: Text("Hello Flutter"),
-      ),
+      body: Center(child: Text("Hello Flutter")),
     );
   }
 }
