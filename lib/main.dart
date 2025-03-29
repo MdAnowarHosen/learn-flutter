@@ -84,6 +84,41 @@ class HomeActivity extends StatelessWidget {
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
         ),
+      drawer: Drawer(
+        backgroundColor: Colors.green[400],
+        surfaceTintColor: Colors.green[900],
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Text("Flutter App"),
+              decoration: BoxDecoration(
+                color: Colors.green,
+              ),
+            ),
+            ListTile(
+              title: Text("Home"),
+              leading: Icon(Icons.home),
+              onTap: () {
+                MySnackBar("Home", context);
+              },
+            ),
+            ListTile(
+              title: Text("Search"),
+              leading: Icon(Icons.search),
+              onTap: () {
+                MySnackBar("Search", context);
+              },
+            ),
+            ListTile(
+              title: Text("Settings"),
+              leading: Icon(Icons.settings),
+              onTap: () {
+                MySnackBar("Settings", context);
+              },
+            ),
+          ],
+            )
+      ),
       body: Center(
         child: Text("Hello Flutter"),
       ),
