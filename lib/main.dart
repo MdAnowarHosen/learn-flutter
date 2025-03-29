@@ -61,6 +61,29 @@ class HomeActivity extends StatelessWidget {
           ],
 
       ),
+      bottomNavigationBar:BottomNavigationBar(
+        backgroundColor: Colors.green,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings"),
+        ],
+        
+        currentIndex: 0,
+        onTap: (int index){
+          if(index == 0){
+            MySnackBar("Home", context);
+          }
+          else if(index == 1){
+            MySnackBar("Search", context);
+          }
+          else if(index == 2){
+            MySnackBar("Settings", context);
+          }
+        },
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.white,
+        ),
       body: Center(
         child: Text("Hello Flutter"),
       ),
