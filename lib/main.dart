@@ -90,10 +90,19 @@ class HomeActivity extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              child: Image.network(
-                'https://cdn.pixabay.com/photo/2014/04/03/10/44/avatar-311292_1280.png',
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.green),
+                accountName: Text('Anowar Hosen'),
+                accountEmail: Text('anowarhosensoft@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+                ),
+                onDetailsPressed: () => {
+                  MySnackBar("Profile", context)
+                },
               ),
-              decoration: BoxDecoration(color: Colors.green),
             ),
             ListTile(
               title: Text("Home"),
@@ -122,7 +131,7 @@ class HomeActivity extends StatelessWidget {
                 MySnackBar("Settings", context);
               },
             ),
-              ListTile(
+            ListTile(
               title: Text("About"),
               leading: Icon(Icons.info),
               iconColor: Colors.white,
