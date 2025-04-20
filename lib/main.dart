@@ -12,7 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: HomeActivity(),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.green),
+      theme: ThemeData(
+         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+      ),
       // theme: ThemeData(primarySwatch: Colors.green) ,
       // color: Colors.green,
     );
@@ -85,14 +87,14 @@ class HomeActivity extends StatelessWidget {
         unselectedItemColor: Colors.white,
       ),
       drawer: Drawer(
-        backgroundColor: Colors.green[400],
-        surfaceTintColor: Colors.green[900],
+        backgroundColor: Colors.green[700],
+        // surfaceTintColor: Colors.green[900],
         child: ListView(
           children: [
             DrawerHeader(
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.green),
+                // decoration: BoxDecoration(color: Colors.green),
                 accountName: Text('Anowar Hosen'),
                 accountEmail: Text('anowarhosensoft@gmail.com'),
                 currentAccountPicture: CircleAvatar(
