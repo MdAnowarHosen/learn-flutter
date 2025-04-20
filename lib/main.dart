@@ -30,6 +30,10 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      // button style
+        ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+          minimumSize: Size(double.infinity, 50),
+        ); 
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -144,63 +148,37 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+      
+
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              height: 200,
-              width: 200,
-              child: Text(
-                'Hello',
-                style: TextStyle(fontSize: 30, color: Colors.white),
-              ),
-              alignment: Alignment.center,
-              // margin top
-               margin: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(20),
-              ),
+         Padding(padding: EdgeInsets.only(top: 0), child:  TextField(
+            decoration: InputDecoration(
+              hintText: "Enter Your Name",
+              border: OutlineInputBorder(),
+              labelText: "Name",
+              prefixIcon: Icon(Icons.person),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              height: 200,
-              width: 200,
-              child: Text(
-                'Hello',
-                style: TextStyle(fontSize: 30, color: Colors.white),
-              ),
-              alignment: Alignment.center,
-              // margin top
-              margin: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(20),
-              ),
+          ),),
+            Padding(padding: EdgeInsets.only(top: 20), child:  TextField(
+            decoration: InputDecoration(
+              hintText: "Enter Your Email",
+              border: OutlineInputBorder(),
+              labelText: "Email",
+              prefixIcon: Icon(Icons.email),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              height: 200,
-              width: 200,
-              child: Text(
-                'Hello',
-                style: TextStyle(fontSize: 30, color: Colors.white),
-              ),
-              alignment: Alignment.center,
-              // margin top
-              margin: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(20),
-              ),
+          ),),
+            Padding(padding: EdgeInsets.only(top: 20), child:  TextField(
+            decoration: InputDecoration(
+              hintText: "Enter Your Phone",
+              border: OutlineInputBorder(),
+              labelText: "Phone",
+              prefixIcon: Icon(Icons.phone),
             ),
-          ),
+          ),),
+          // button
+          Padding(padding: EdgeInsets.only(top: 30), child:  ElevatedButton(onPressed: (){}, child: Text("Submit"), style: buttonStyle,)),
         ],
       ),
     );
