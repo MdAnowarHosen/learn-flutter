@@ -34,6 +34,15 @@ class HomeActivity extends StatelessWidget {
         ButtonStyle buttonStyle = ElevatedButton.styleFrom(
           minimumSize: Size(double.infinity, 50),
         ); 
+
+        var myList = [
+          {'name': 'Anowar Hosen', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
+          {'name': 'Jony Hosen', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
+          {'name': 'Anas', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
+          {'name': 'Anas Anowar', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
+        ];
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -148,38 +157,25 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-      
-
-        children: [
-         Padding(padding: EdgeInsets.only(top: 0), child:  TextField(
-            decoration: InputDecoration(
-              hintText: "Enter Your Name",
-              border: OutlineInputBorder(),
-              labelText: "Name",
-              prefixIcon: Icon(Icons.person),
+      body: ListView.builder(
+        itemCount: myList.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              MySnackBar(myList[index]['name']!, context);
+          },
+         
+          child: Container(
+            margin: EdgeInsets.all(10.0),
+            width: double.infinity,
+            height: 220,
+            child: Image.network(
+              myList[index]['image']!,
             ),
-          ),),
-            Padding(padding: EdgeInsets.only(top: 20), child:  TextField(
-            decoration: InputDecoration(
-              hintText: "Enter Your Email",
-              border: OutlineInputBorder(),
-              labelText: "Email",
-              prefixIcon: Icon(Icons.email),
             ),
-          ),),
-            Padding(padding: EdgeInsets.only(top: 20), child:  TextField(
-            decoration: InputDecoration(
-              hintText: "Enter Your Phone",
-              border: OutlineInputBorder(),
-              labelText: "Phone",
-              prefixIcon: Icon(Icons.phone),
-            ),
-          ),),
-          // button
-          Padding(padding: EdgeInsets.only(top: 30), child:  ElevatedButton(onPressed: (){}, child: Text("Submit"), style: buttonStyle,)),
-        ],
+          );
+         
+        },
       ),
     );
   }
