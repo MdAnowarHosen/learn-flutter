@@ -30,18 +30,93 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      // button style
-        ButtonStyle buttonStyle = ElevatedButton.styleFrom(
-          minimumSize: Size(double.infinity, 50),
-        ); 
+    // button style
+    ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+      minimumSize: Size(double.infinity, 50),
+    );
 
-        var myList = [
-          {'name': 'Anowar Hosen', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
-          {'name': 'Jony Hosen', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
-          {'name': 'Anas', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
-          {'name': 'Anas Anowar', 'image': 'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600'},
-        ];
-
+    var myList = [
+      {
+        'name': 'Anowar Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Jony Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas Anowar',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anowar Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Jony Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas Anowar',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anowar Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Jony Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas Anowar',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anowar Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Jony Hosen',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+      {
+        'name': 'Anas Anowar',
+        'image':
+            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
+      },
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -157,24 +232,27 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 0,
+          childAspectRatio: 1.2, // Spacing: 1,
+        ),
+
         itemCount: myList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
               MySnackBar(myList[index]['name']!, context);
-          },
-         
-          child: Container(
-            margin: EdgeInsets.all(10.0),
-            width: double.infinity,
-            height: 220,
-            child: Image.network(
-              myList[index]['image']!,
-            ),
+            },
+
+            child: Container(
+              margin: EdgeInsets.all(10.0),
+              width: double.infinity,
+              height: 220,
+              child: Image.network(myList[index]['image']!),
             ),
           );
-         
         },
       ),
     );
