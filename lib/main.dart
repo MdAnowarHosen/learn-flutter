@@ -42,6 +42,9 @@ class HomeActivity extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text("Flutter App"),
+          iconTheme: IconThemeData(color: Colors.green),
+          foregroundColor: Colors.green,
+          backgroundColor: const Color.fromARGB(255, 197, 231, 198),
           bottom: TabBar(
             isScrollable: true,
             tabs: [
