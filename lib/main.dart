@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'fragment/BalanceFragment.dart';
+import 'fragment/HomeFragment.dart';
+import 'fragment/MessageFragment.dart';
+import 'fragment/NotificationFragment.dart';
+import 'fragment/ProfileFragment.dart';
+import 'fragment/SearchFragment.dart';
+
 main() {
   runApp(const MyApp());
 }
@@ -30,23 +37,34 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
-  return DefaultTabController(length: 5, child: Scaffold(
-    appBar: AppBar(
-      title: Text("Flutter App"),
-      bottom: TabBar(
-        isScrollable: true,
-        tabs: [
-          Tab(icon: Icon(Icons.home), text: 'Home'),
-          Tab(icon: Icon(Icons.notifications), text: 'Notification'),
-          Tab(icon: Icon(Icons.message), text: 'Message'),
-          Tab(icon: Icon(Icons.search), text: 'Search'),
-          Tab(icon: Icon(Icons.balance), text: 'Balance'),
-          Tab(icon: Icon(Icons.person), text: 'Profile'),
-        ],
+    return DefaultTabController(
+      length: 6,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter App"),
+          bottom: TabBar(
+            isScrollable: true,
+            tabs: [
+              Tab(icon: Icon(Icons.home), text: 'Home'),
+              Tab(icon: Icon(Icons.notifications), text: 'Notification'),
+              Tab(icon: Icon(Icons.message), text: 'Message'),
+              Tab(icon: Icon(Icons.search), text: 'Search'),
+              Tab(icon: Icon(Icons.balance), text: 'Balance'),
+              Tab(icon: Icon(Icons.person), text: 'Profile'),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            HomeFragment(),
+            NotificationFragment(),
+            MessageFragment(),
+            SearchFragment(),
+            BalanceFragment(),
+            ProfileFragment(),
+          ],
+        ),
       ),
-    ),
-  ));
-    
+    );
   }
 }
