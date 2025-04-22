@@ -163,7 +163,11 @@ class HomeActivity extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AboutActivity()),
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              AboutActivity('This is learning project app!'),
+                    ),
                   );
                 },
                 child: Text('About'),

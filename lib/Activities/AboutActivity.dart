@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AboutActivity extends StatelessWidget {
-  const AboutActivity({super.key});
+  String message;
+  AboutActivity(this.message, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class AboutActivity extends StatelessWidget {
         shadowColor: Colors.green[900],
         surfaceTintColor: Colors.green[900],
       ),
-      body: Center(child: Text('About')),
+      body: Center(child: Text('$message')),
     );
   }
 }
