@@ -35,89 +35,6 @@ class HomeActivity extends StatelessWidget {
       minimumSize: Size(double.infinity, 50),
     );
 
-    var myList = [
-      {
-        'name': 'Anowar Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Jony Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas Anowar',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anowar Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Jony Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas Anowar',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anowar Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Jony Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas Anowar',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anowar Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Jony Hosen',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-      {
-        'name': 'Anas Anowar',
-        'image':
-            'https://images.pexels.com/photos/4043324/pexels-photo-4043324.jpeg?auto=compress&cs=tinysrgb&w=600',
-      },
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -232,29 +149,82 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 0,
-          childAspectRatio: 1.2, // Spacing: 1,
-        ),
-
-        itemCount: myList.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              MySnackBar(myList[index]['name']!, context);
-            },
-
-            child: Container(
-              margin: EdgeInsets.all(10.0),
-              width: double.infinity,
-              height: 220,
-              child: Image.network(myList[index]['image']!),
+      body: Padding(
+        padding: EdgeInsets.only(top: 50),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AboutActivity(),
+                    ),
+                  );
+                },
+                child: Text('About'),
+                style: buttonStyle,
+              ),
             ),
-          );
-        },
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileActivity(),
+                    ),
+                  );
+                },
+                child: Text('Profile'),
+                style: buttonStyle,
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class AboutActivity extends StatelessWidget {
+  const AboutActivity({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("About"),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+        elevation: 8.0,
+        shadowColor: Colors.green[900],
+        surfaceTintColor: Colors.green[900],
+      ),
+      body: Center(child: Text('About')),
+    );
+  }
+}
+
+class ProfileActivity extends StatelessWidget {
+  const ProfileActivity({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile"),
+        backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
+        elevation: 8.0,
+        shadowColor: Colors.green[900],
+        surfaceTintColor: Colors.green[900],
+      ),
+      body: Center(child: Text('Profile')),
     );
   }
 }
