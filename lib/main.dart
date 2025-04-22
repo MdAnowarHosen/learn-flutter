@@ -160,9 +160,7 @@ class HomeActivity extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const AboutActivity(),
-                    ),
+                    MaterialPageRoute(builder: (context) => AboutActivity()),
                   );
                 },
                 child: Text('About'),
@@ -175,9 +173,7 @@ class HomeActivity extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfileActivity(),
-                    ),
+                    MaterialPageRoute(builder: (context) => ProfileActivity()),
                   );
                 },
                 child: Text('Profile'),
