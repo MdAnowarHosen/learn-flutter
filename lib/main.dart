@@ -145,7 +145,7 @@ class HomeActivity extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: LinearProgressIndicator(color: Colors.green, minHeight: 5),
+        child: LinearProgressIndicator(color: Colors.green, minHeight: 20),
       ),
     );
   }
