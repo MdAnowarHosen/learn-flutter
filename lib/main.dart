@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 
 main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: HomeActivity(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
       // theme: ThemeData(primarySwatch: Colors.green) ,
       // color: Colors.green,
@@ -99,11 +100,10 @@ class HomeActivity extends StatelessWidget {
                 accountEmail: Text('anowarhosensoft@gmail.com'),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(
-                      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                  ),
                 ),
-                onDetailsPressed: () => {
-                  MySnackBar("Profile", context)
-                },
+                onDetailsPressed: () => {MySnackBar("Profile", context)},
               ),
             ),
             ListTile(
@@ -145,7 +145,127 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(child: Text("Hello Flutter")),
+      body: SingleChildScrollView(
+        child: BootstrapContainer(
+          fluid: true,
+          // decoration: BoxDecoration(color: Colors.blue),
+          children: [
+            BootstrapRow(
+              height: 100,
+              children: [
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.blue,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.green,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.yellow,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.pink,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.deepPurpleAccent,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.blueGrey,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.purpleAccent,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.deepOrangeAccent,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.deepPurpleAccent,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.grey,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.lightGreen,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-6 col-md-4 col-lg-3',
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    height: 100,
+                    color: Colors.purple,
+                    child: Center(child: Text("1")),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
