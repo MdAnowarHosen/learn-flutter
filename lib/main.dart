@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'style.dart';
+
 main() {
   runApp(const MyApp());
 }
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CounterApp(),
+      home: SumApp(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
@@ -25,35 +27,14 @@ void MySnackBar(String message, BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
 }
 
-class CounterApp extends StatefulWidget {
+class SumApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return HomeActivity();
+    return SumAppUI();
   }
 }
 
-class CounterAppUI extends State<CounterApp> {
-  int counterNumber = 0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("CounterNumber App")),
-      body: Center(child: Text(counterNumber.toString())),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            counterNumber++;
-          });
-          print("Floating Button Clicked. value is: $counterNumber");
-        },
-        child: Icon(Icons.add),
-      ),
-    );
-  }
-}
-
-class HomeActivity extends State<CounterApp> {
-  int counterNumber = 0;
+class SumAppUI extends State<SumApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,14 +93,7 @@ class HomeActivity extends State<CounterApp> {
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            counterNumber++;
-          });
-        },
-        child: Icon(Icons.add),
-      ),
+
       drawer: Drawer(
         backgroundColor: Colors.green[700],
         // surfaceTintColor: Colors.green[900],
@@ -178,7 +152,28 @@ class HomeActivity extends State<CounterApp> {
           ],
         ),
       ),
-      body: Center(child: Text("Counter number is: $counterNumber")),
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Text("Sum is: ", style: titleStyle()),
+            SizedBox(height: 20),
+            // input field
+            TextFormField(decoration: inputDecoration("Enter 1st number")),
+            SizedBox(height: 20),
+            TextFormField(decoration: inputDecoration("Enter 2nd number")),
+            SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Sum"),
+                style: buttonStyle(),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
