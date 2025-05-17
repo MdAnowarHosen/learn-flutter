@@ -28,7 +28,7 @@ void MySnackBar(String message, BuildContext context) {
 class CounterApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return CounterAppUI();
+    return HomeActivity();
   }
 }
 
@@ -52,9 +52,8 @@ class CounterAppUI extends State<CounterApp> {
   }
 }
 
-class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
-
+class HomeActivity extends State<CounterApp> {
+  int counterNumber = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,6 +111,14 @@ class HomeActivity extends StatelessWidget {
         },
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            counterNumber++;
+          });
+        },
+        child: Icon(Icons.add),
       ),
       drawer: Drawer(
         backgroundColor: Colors.green[700],
@@ -171,7 +178,7 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(child: Text("Hello Flutter")),
+      body: Center(child: Text("Counter number is: $counterNumber")),
     );
   }
 }
