@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeActivity(),
+      home: CounterApp(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
       ),
       // theme: ThemeData(primarySwatch: Colors.green) ,
       // color: Colors.green,
@@ -23,6 +23,33 @@ class MyApp extends StatelessWidget {
 
 void MySnackBar(String message, BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
+}
+
+class CounterApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return CounterAppUI();
+  }
+}
+
+class CounterAppUI extends State<CounterApp> {
+  int counterNumber = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("CounterNumber App")),
+      body: Center(child: Text(counterNumber.toString())),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            counterNumber++;
+          });
+          print("Floating Button Clicked. value is: $counterNumber");
+        },
+        child: Icon(Icons.add),
+      ),
+    );
+  }
 }
 
 class HomeActivity extends StatelessWidget {
@@ -99,11 +126,10 @@ class HomeActivity extends StatelessWidget {
                 accountEmail: Text('anowarhosensoft@gmail.com'),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(
-                      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+                    'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                  ),
                 ),
-                onDetailsPressed: () => {
-                  MySnackBar("Profile", context)
-                },
+                onDetailsPressed: () => {MySnackBar("Profile", context)},
               ),
             ),
             ListTile(
