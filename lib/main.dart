@@ -35,8 +35,24 @@ class SumApp extends StatefulWidget {
 }
 
 class SumAppUI extends State<SumApp> {
+  Map<String, double> FormValues = {"Num1": 0, "Num2": 0};
+  double sum = 0;
+
   @override
   Widget build(BuildContext context) {
+    MyInputOnChanged(String key, String value) {
+      setState(() {
+        // FormValues[key] = value;
+        FormValues.update(key, (update) => double.parse(value));
+      });
+    }
+
+    Sum() {
+      setState(() {
+        sum = FormValues["Num1"]! + FormValues["Num2"]!;
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -156,17 +172,25 @@ class SumAppUI extends State<SumApp> {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text("Sum is: ", style: titleStyle()),
+            Text(sum.toString(), style: titleStyle()),
             SizedBox(height: 20),
             // input field
-            TextFormField(decoration: inputDecoration("Enter 1st number")),
+            TextFormField(
+              decoration: inputDecoration("Enter 1st number"),
+              onChanged: (value) => MyInputOnChanged("Num1", value),
+            ),
             SizedBox(height: 20),
-            TextFormField(decoration: inputDecoration("Enter 2nd number")),
+            TextFormField(
+              decoration: inputDecoration("Enter 2nd number"),
+              onChanged: (value) => MyInputOnChanged("Num2", value),
+            ),
             SizedBox(height: 20),
             Container(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Sum();
+                },
                 child: Text("Sum"),
                 style: buttonStyle(),
               ),
