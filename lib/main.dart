@@ -37,18 +37,39 @@ class ToDOAPPNow extends StatelessWidget {
 
       body: Padding(
         padding: EdgeInsets.all(5),
-        child: Row(
+        child: Column(
           children: [
-            Expanded(
-              child: TextFormField(
-                onChanged: (value) {},
-                decoration: InputDecoration(labelText: 'Enter Task'),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    onChanged: (value) {},
+                    decoration: InputDecoration(labelText: 'Enter Task'),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Add'),
+                  style: buttonStyle(),
+                ),
+              ],
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text('Add'),
-              style: buttonStyle(),
+
+            // list view
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text('Task ' + (index + 1).toString()),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {},
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
