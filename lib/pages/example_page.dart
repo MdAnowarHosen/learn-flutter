@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'style.dart';
+import '../style.dart';
 
 class ToDoApp extends StatefulWidget {
   @override
@@ -145,30 +145,11 @@ class ToDoAppUI extends State<ToDoApp> {
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),
-        child: Column(
+        child: Stack(
           children: [
-            Text(sum.toString(), style: titleStyle()),
-            SizedBox(height: 20),
-            // input field
-            TextFormField(
-              decoration: inputDecoration("Enter 1st number"),
-              onChanged: (value) => MyInputOnChanged("Num1", value),
-            ),
-            SizedBox(height: 20),
-            TextFormField(
-              decoration: inputDecoration("Enter 2nd number"),
-              onChanged: (value) => MyInputOnChanged("Num2", value),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Sum();
-                },
-                child: Text("Sum"),
-                style: buttonStyle(),
-              ),
+            Center(child: Container(color: Colors.green, height: 200)),
+            Center(
+              child: CircleAvatar(backgroundColor: Colors.red, radius: 50),
             ),
           ],
         ),
