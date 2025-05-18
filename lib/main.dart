@@ -53,6 +53,12 @@ class SumAppUI extends State<SumApp> {
       });
     }
 
+    Subtract() {
+      setState(() {
+        sum = FormValues["Num1"]! - FormValues["Num2"]!;
+      });
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -192,6 +198,17 @@ class SumAppUI extends State<SumApp> {
                   Sum();
                 },
                 child: Text("Sum"),
+                style: buttonStyle(),
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  Subtract();
+                },
+                child: Text("Subtract"),
                 style: buttonStyle(),
               ),
             ),
