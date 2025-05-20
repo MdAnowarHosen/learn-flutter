@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'toDoPage.dart';
+import 'toDoPage.dart';
 import 'style.dart';
 
 main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ToDOAPPNow(),
+      home: ToDoApp(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
@@ -28,6 +28,14 @@ class ToDOAPPNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List lists = [];
+
+    // addList(content) {
+    //   setState(() {
+    //     lists.add(content);
+    //   });
+    // }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -49,7 +57,9 @@ class ToDOAPPNow extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // addList('added');
+                  },
                   child: Text('Add'),
                   style: buttonStyle(),
                 ),
@@ -59,7 +69,7 @@ class ToDOAPPNow extends StatelessWidget {
             // list view
             Expanded(
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: lists.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text('Task ' + (index + 1).toString()),

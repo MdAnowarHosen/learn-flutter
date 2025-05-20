@@ -10,24 +10,23 @@ class ToDoApp extends StatefulWidget {
 }
 
 class ToDoAppUI extends State<ToDoApp> {
-  Map<String, double> FormValues = {"Num1": 0, "Num2": 0};
-  double sum = 0;
+  List lists = [];
+  var item = '';
+
+  setItem(value) {
+    setState(() {
+      item = value;
+    });
+  }
+
+  addList() {
+    setState(() {
+      lists.add({'item': item});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    MyInputOnChanged(String key, String value) {
-      setState(() {
-        // FormValues[key] = value;
-        FormValues.update(key, (update) => double.parse(value));
-      });
-    }
-
-    Sum() {
-      setState(() {
-        sum = FormValues["Num1"]! + FormValues["Num2"]!;
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Flutter App"),
@@ -144,30 +143,43 @@ class ToDoAppUI extends State<ToDoApp> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(5),
         child: Column(
           children: [
-            Text(sum.toString(), style: titleStyle()),
-            SizedBox(height: 20),
-            // input field
-            TextFormField(
-              decoration: inputDecoration("Enter 1st number"),
-              onChanged: (value) => MyInputOnChanged("Num1", value),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    onChanged: (value) {
+                      setItem(value);
+                    },
+                    decoration: InputDecoration(labelText: 'Enter Task'),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    addList();
+                  },
+                  child: Text('Add'),
+                  style: buttonStyle(),
+                ),
+              ],
             ),
-            SizedBox(height: 20),
-            TextFormField(
-              decoration: inputDecoration("Enter 2nd number"),
-              onChanged: (value) => MyInputOnChanged("Num2", value),
-            ),
-            SizedBox(height: 20),
-            Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Sum();
+
+            // list view
+            Expanded(
+              child: ListView.builder(
+                itemCount: lists.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(lists[index]['item'].toString()),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {},
+                    ),
+                  );
                 },
-                child: Text("Sum"),
-                style: buttonStyle(),
               ),
             ),
           ],
