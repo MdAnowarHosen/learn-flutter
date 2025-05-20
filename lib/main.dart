@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'toDoPage.dart';
-import 'style.dart';
 
 main() {
   runApp(const MyApp());
@@ -19,71 +18,6 @@ class MyApp extends StatelessWidget {
       ),
       // theme: ThemeData(primarySwatch: Colors.green) ,
       // color: Colors.green,
-    );
-  }
-}
-
-class ToDOAPPNow extends StatelessWidget {
-  const ToDOAPPNow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    List lists = [];
-
-    // addList(content) {
-    //   setState(() {
-    //     lists.add(content);
-    //   });
-    // }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Flutter App"),
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-      ),
-
-      body: Padding(
-        padding: EdgeInsets.all(5),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: TextFormField(
-                    onChanged: (value) {},
-                    decoration: InputDecoration(labelText: 'Enter Task'),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // addList('added');
-                  },
-                  child: Text('Add'),
-                  style: buttonStyle(),
-                ),
-              ],
-            ),
-
-            // list view
-            Expanded(
-              child: ListView.builder(
-                itemCount: lists.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text('Task ' + (index + 1).toString()),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete),
-                      onPressed: () {},
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
