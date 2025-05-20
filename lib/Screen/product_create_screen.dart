@@ -30,20 +30,41 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                   ),
                   SizedBox(height: 20),
                   TextFormField(
-                    decoration: inputDecorationStyle('Product Name'),
+                    decoration: inputDecorationStyle('Product Code'),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
-                    decoration: inputDecorationStyle('Product Name'),
+                    decoration: inputDecorationStyle('Product Image'),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
-                    decoration: inputDecorationStyle('Product Name'),
+                    decoration: inputDecorationStyle('Product Unit Price'),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
-                    decoration: inputDecorationStyle('Product Name'),
+                    decoration: inputDecorationStyle('Product Total Price'),
                   ),
+                  SizedBox(height: 20),
+                  AppDropdownStyle(
+                    DropdownButton(
+                      value: '',
+                      items: [
+                        DropdownMenuItem(
+                          child: Text('Select Product QTY'),
+                          value: '',
+                        ),
+                        DropdownMenuItem(child: Text('1 PCS'), value: '1 pcs'),
+                        DropdownMenuItem(child: Text('2 PCS'), value: '2 pcs'),
+                        DropdownMenuItem(child: Text('3 PCS'), value: '3 pcs'),
+                        DropdownMenuItem(child: Text('4 PCS'), value: '4 pcs'),
+                        DropdownMenuItem(child: Text('5 PCS'), value: '5 pcs'),
+                      ],
+                      onChanged: (value) {},
+                      underline: Container(),
+                      isExpanded: true,
+                    ),
+                  ),
+
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {},

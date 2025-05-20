@@ -29,3 +29,14 @@ backgroundScreen(context) {
     fit: BoxFit.cover,
   );
 }
+
+DecoratedBox AppDropdownStyle(child) {
+  return DecoratedBox(
+    decoration: BoxDecoration(
+      color: Colors.white,
+      border: Border.all(color: Colors.grey, width: 1),
+      borderRadius: BorderRadius.circular(4),
+    ),
+    child: Padding(padding: EdgeInsets.only(left: 20, right: 20), child: child),
+  );
+}
