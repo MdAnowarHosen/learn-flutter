@@ -25,6 +25,12 @@ class ToDoAppUI extends State<ToDoApp> {
     });
   }
 
+  removeList(index) {
+    setState(() {
+      lists.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -176,7 +182,9 @@ class ToDoAppUI extends State<ToDoApp> {
                     title: Text(lists[index]['item'].toString()),
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
-                      onPressed: () {},
+                      onPressed: () {
+                        removeList(index);
+                      },
                     ),
                   );
                 },
