@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 InputDecoration inputDecorationStyle(String label) {
   return InputDecoration(border: const OutlineInputBorder(), labelText: label);
@@ -16,5 +17,15 @@ ButtonStyle buttonStyle() {
     foregroundColor: Colors.white,
     padding: EdgeInsets.all(22),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+  );
+}
+
+backgroundScreen(context) {
+  return SvgPicture.asset(
+    'assets/images/screen-back.svg',
+    alignment: Alignment.center,
+    width: MediaQuery.of(context).size.width,
+    height: MediaQuery.of(context).size.height,
+    fit: BoxFit.cover,
   );
 }

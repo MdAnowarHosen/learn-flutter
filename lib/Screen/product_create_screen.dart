@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../styles/style.dart';
+
 class ProductCreateScreen extends StatefulWidget {
   const ProductCreateScreen({super.key});
 
@@ -16,7 +18,43 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
         backgroundColor: Colors.green,
       ),
       body: Stack(
-        children: [Container(child: Center(child: Text("Create Product")))],
+        children: [
+          backgroundScreen(context),
+          Container(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: inputDecorationStyle('Product Name'),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: inputDecorationStyle('Product Name'),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: inputDecorationStyle('Product Name'),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: inputDecorationStyle('Product Name'),
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: inputDecorationStyle('Product Name'),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Submit'),
+                    style: buttonStyle(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
