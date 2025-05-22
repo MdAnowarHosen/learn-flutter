@@ -70,6 +70,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
       appBar: AppBar(
         title: Text("Create Product"),
         backgroundColor: Colors.green,
+        foregroundColor: Colors.white,
       ),
       body: Form(
         key: _formKey,
