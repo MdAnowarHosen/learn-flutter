@@ -24,7 +24,6 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
 
   // 👇 Function to handle form submission
   submitForm(BuildContext context) async {
-    print('ok');
     // _formKey.currentState!.validate();
 
     if (_formKey.currentState!.validate()) {
@@ -79,7 +78,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                     TextFormField(
                       decoration: inputDecorationStyle('Product Image'),
                       onChanged: (value) => inputOnChange('Img', value),
-                      validator: ValidationBuilder().required().url().build(),
+                      validator: ValidationBuilder().required().build(),
                     ),
                     SizedBox(height: 20),
                     TextFormField(
