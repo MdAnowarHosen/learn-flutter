@@ -15,10 +15,12 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
     "Img": "",
     "ProductCode": "",
     "ProductName": "",
-    "Qty": "1 pcs",
+    "Qty": "",
     "TotalPrice": "",
     "UnitPrice": "",
   };
+
+  bool Loading = false;
 
   final _formKey = GlobalKey<FormState>();
 
@@ -28,8 +30,26 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
 
     if (_formKey.currentState!.validate()) {
       // Form is valid, you can perform submission here
+      setState(() {
+        Loading = true;
+      });
 
       await productCreateRequest(formData);
+
+      // empty the form data
+
+      setState(() {
+        formData = {
+          "Img": "",
+          "ProductCode": "",
+          "ProductName": "",
+          "Qty": "",
+          "TotalPrice": "",
+          "UnitPrice": "",
+        };
+
+        Loading = false;
+      });
     } else {
       // Form is invalid
       ScaffoldMessenger.of(
@@ -57,91 +77,111 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
           children: [
             backgroundScreen(context),
             Container(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: inputDecorationStyle('Product Name'),
-                      onChanged: (value) => inputOnChange('ProductName', value),
-                      validator:
-                          ValidationBuilder().required().minLength(5).build(),
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: inputDecorationStyle('Product Code'),
-                      onChanged: (value) => inputOnChange('ProductCode', value),
-                      validator:
-                          ValidationBuilder().required().minLength(5).build(),
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: inputDecorationStyle('Product Image'),
-                      onChanged: (value) => inputOnChange('Img', value),
-                      validator: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: inputDecorationStyle('Product Unit Price'),
-                      onChanged: (value) => inputOnChange('UnitPrice', value),
-                      validator: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      decoration: inputDecorationStyle('Product Total Price'),
-                      onChanged: (value) => inputOnChange('TotalPrice', value),
-                      validator: ValidationBuilder().required().build(),
-                    ),
-                    SizedBox(height: 20),
-                    AppDropdownStyle(
-                      DropdownButton(
-                        onChanged: (value) => inputOnChange('Qty', value),
-                        value: formData['Qty'],
-                        items: [
-                          DropdownMenuItem(
-                            child: Text('Select Product QTY'),
-                            value: '',
-                          ),
-                          DropdownMenuItem(
-                            child: Text('1 PCS'),
-                            value: '1 pcs',
-                          ),
-                          DropdownMenuItem(
-                            child: Text('2 PCS'),
-                            value: '2 pcs',
-                          ),
-                          DropdownMenuItem(
-                            child: Text('3 PCS'),
-                            value: '3 pcs',
-                          ),
-                          DropdownMenuItem(
-                            child: Text('4 PCS'),
-                            value: '4 pcs',
-                          ),
-                          DropdownMenuItem(
-                            child: Text('5 PCS'),
-                            value: '5 pcs',
-                          ),
-                        ],
-                        underline: Container(),
-                        isExpanded: true,
-                      ),
-                    ),
+              child:
+                  Loading
+                      ? Center(child: CircularProgressIndicator())
+                      : SingleChildScrollView(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              decoration: inputDecorationStyle('Product Name'),
+                              onChanged:
+                                  (value) =>
+                                      inputOnChange('ProductName', value),
+                              validator:
+                                  ValidationBuilder()
+                                      .required()
+                                      .minLength(5)
+                                      .build(),
+                            ),
+                            SizedBox(height: 20),
+                            TextFormField(
+                              decoration: inputDecorationStyle('Product Code'),
+                              onChanged:
+                                  (value) =>
+                                      inputOnChange('ProductCode', value),
+                              validator:
+                                  ValidationBuilder()
+                                      .required()
+                                      .minLength(5)
+                                      .build(),
+                            ),
+                            SizedBox(height: 20),
+                            TextFormField(
+                              decoration: inputDecorationStyle('Product Image'),
+                              onChanged: (value) => inputOnChange('Img', value),
+                              validator: ValidationBuilder().required().build(),
+                            ),
+                            SizedBox(height: 20),
+                            TextFormField(
+                              decoration: inputDecorationStyle(
+                                'Product Unit Price',
+                              ),
+                              onChanged:
+                                  (value) => inputOnChange('UnitPrice', value),
+                              validator: ValidationBuilder().required().build(),
+                            ),
+                            SizedBox(height: 20),
+                            TextFormField(
+                              decoration: inputDecorationStyle(
+                                'Product Total Price',
+                              ),
+                              onChanged:
+                                  (value) => inputOnChange('TotalPrice', value),
+                              validator: ValidationBuilder().required().build(),
+                            ),
+                            SizedBox(height: 20),
+                            AppDropdownStyle(
+                              DropdownButton(
+                                onChanged:
+                                    (value) => inputOnChange('Qty', value),
+                                value: formData['Qty'],
+                                items: [
+                                  DropdownMenuItem(
+                                    child: Text('Select Product QTY'),
+                                    value: '',
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text('1 PCS'),
+                                    value: '1 pcs',
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text('2 PCS'),
+                                    value: '2 pcs',
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text('3 PCS'),
+                                    value: '3 pcs',
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text('4 PCS'),
+                                    value: '4 pcs',
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text('5 PCS'),
+                                    value: '5 pcs',
+                                  ),
+                                ],
+                                underline: Container(),
+                                isExpanded: true,
+                              ),
+                            ),
 
-                    SizedBox(height: 20),
-                    Container(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          submitForm(context);
-                        },
-                        child: Text('Submit'),
-                        style: buttonStyle(),
+                            SizedBox(height: 20),
+                            Container(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  submitForm(context);
+                                },
+                                child: Text('Submit'),
+                                style: buttonStyle(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
             ),
           ],
         ),
